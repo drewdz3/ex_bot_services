@@ -68,7 +68,7 @@ public class UsersController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<UserDto>> CreateUser([FromBody] CreateUserRequest request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Creating new user: {Username}", request.Username);
+        _logger.LogInformation("Creating new user with username length: {UsernameLength}", request.Username?.Length ?? 0);
         var user = await _userService.CreateUserAsync(request, cancellationToken);
         return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
     }

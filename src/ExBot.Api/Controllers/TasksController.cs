@@ -83,7 +83,7 @@ public class TasksController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<TaskItemDto>> CreateTask([FromBody] CreateTaskItemRequest request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Creating new task: {Title}", request.Title);
+        _logger.LogInformation("Creating new task with title length: {TitleLength}", request.Title?.Length ?? 0);
         var task = await _taskItemService.CreateTaskAsync(request, cancellationToken);
         return CreatedAtAction(nameof(GetTaskById), new { id = task.Id }, task);
     }
