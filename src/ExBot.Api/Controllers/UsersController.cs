@@ -1,15 +1,20 @@
 using ExBot.Application.DTOs;
 using ExBot.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
 
 namespace ExBot.Api.Controllers;
 
 /// <summary>
 /// API controller for User management operations
+/// Requires Azure Entra ID authentication
 /// </summary>
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
+[RequiredScope("access_as_user")]
 public class UsersController : ControllerBase
 {
     private readonly IUserService _userService;
