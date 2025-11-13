@@ -5,6 +5,9 @@
 ExBot API supports a hybrid database approach:
 - **SQL Server** (via Entity Framework Core) for relational data (Users, Tasks)
 - **MongoDB** for document-based data (AI agent conversations, logs)
+  - **Fully compatible with Azure Cosmos DB for MongoDB API** 🎉
+
+> **Azure Cosmos DB Support**: This solution works seamlessly with Azure Cosmos DB using the MongoDB API. Cosmos DB provides MongoDB wire protocol compatibility, so no code changes are needed—just use the Cosmos DB connection string. See the [Azure Cosmos DB Setup](#azure-cosmos-db-setup) section below.
 
 ## Configuration
 
@@ -112,6 +115,66 @@ mongodb+srv://username:password@cluster.mongodb.net/
 ```
 mongodb://username:password@localhost:27017
 ```
+
+**Azure Cosmos DB (MongoDB API):**
+```
+mongodb://your-cosmosdb-account:your-primary-key@your-cosmosdb-account.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@your-cosmosdb-account@
+```
+
+> **Note**: The solution is fully compatible with **Azure Cosmos DB for MongoDB**. Cosmos DB provides MongoDB wire protocol compatibility, so the existing MongoDB.Driver implementation works seamlessly. Simply use the Cosmos DB connection string (available in Azure Portal under "Connection String") in your configuration.
+
+## Azure Cosmos DB Setup
+
+### Using Cosmos DB Instead of MongoDB
+
+Azure Cosmos DB is Microsoft's fully managed NoSQL database service that supports MongoDB API:
+
+1. **Create Cosmos DB Account:**
+   - In Azure Portal, create a new Cosmos DB account
+   - Select **API**: Azure Cosmos DB for MongoDB
+   - Choose appropriate pricing tier (Serverless for dev, Provisioned for production)
+
+2. **Get Connection String:**
+   - Navigate to your Cosmos DB account → **Connection String**
+   - Copy the **Primary Connection String**
+
+3. **Configure Application:**
+   ```json
+   {
+     "UseDatabase": true,
+     "ConnectionStrings": {
+       "MongoDbConnection": "mongodb://your-cosmosdb-account:your-key@your-account.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000"
+     },
+     "MongoDb": {
+       "DatabaseName": "ExBotDb"
+     }
+   }
+   ```
+
+4. **Cosmos DB Benefits:**
+   - Global distribution and multi-region replication
+   - Automatic indexing
+   - Built-in caching
+   - Serverless and autoscale options
+   - SLA-backed availability and performance
+   - Seamless integration with other Azure services
+
+### Cosmos DB Considerations
+
+**Request Units (RUs):**
+- Cosmos DB uses RU-based pricing instead of traditional compute
+- Monitor RU consumption for cost optimization
+- Consider serverless tier for development/testing
+
+**Compatibility:**
+- Supports MongoDB API 4.0+ wire protocol
+- Some MongoDB features may have limitations (check Cosmos DB docs)
+- Transactions are supported within a single partition
+
+**Performance:**
+- Automatic indexing may differ from MongoDB
+- Partition key strategy is important (we use `userId` for conversations)
+- Global distribution provides low-latency access worldwide
 
 ## Data Models
 

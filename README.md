@@ -33,7 +33,10 @@ ExBot/
 
 #### 3. **Infrastructure Layer** (`ExBot.Infrastructure`)
 - Implements repository interfaces
-- Handles data persistence (currently in-memory)
+- Handles data persistence:
+  - **SQL Server** (via EF Core) for relational data
+  - **MongoDB/Cosmos DB** for document-based data (AI conversations)
+  - **In-memory** option for development/testing
 - Manages external service integrations
 - Depends on Domain and Application layers
 
@@ -47,6 +50,9 @@ ExBot/
 
 - **.NET 9.0** - Latest stable .NET framework
 - **ASP.NET Core** - Web API framework
+- **Entity Framework Core 9.0** - SQL Server ORM for relational data
+- **MongoDB.Driver 3.5** - Document database (compatible with Azure Cosmos DB)
+- **Microsoft.Identity.Web** - Azure Entra ID authentication
 - **Swashbuckle** - Swagger/OpenAPI documentation
 - **Dependency Injection** - Built-in .NET DI container
 
@@ -161,17 +167,24 @@ To split a controller into a microservice:
 
 ### Current Implementation
 
-The current implementation uses **in-memory storage** for demonstration purposes. In production:
-- Replace `InMemoryUserRepository` with Entity Framework Core or another ORM
-- Add a real database (SQL Server, PostgreSQL, etc.)
-- Implement proper authentication and authorization
-- Add comprehensive error handling and logging
-- Implement data validation
+The solution includes multiple data storage options:
+
+**Development (Default):**
+- In-memory repositories for rapid development and testing
+- No database setup required
+
+**Production:**
+- **SQL Server** via Entity Framework Core 9.0 for relational data (Users, Tasks)
+- **MongoDB or Azure Cosmos DB** for document-based data (AI agent conversations, logs)
+- Configurable via `UseDatabase` setting in appsettings.json
+
+See [DATABASE.md](DATABASE.md) for complete setup instructions and [AUTHENTICATION.md](AUTHENTICATION.md) for Azure Entra ID configuration.
 
 ## Future Enhancements
 
-- [ ] Add Entity Framework Core for data persistence
-- [ ] Implement authentication (JWT, OAuth)
+- [x] Add Entity Framework Core for data persistence ✅
+- [x] Add MongoDB/Cosmos DB for document storage ✅
+- [x] Implement authentication (Azure Entra ID, JWT, OAuth) ✅
 - [ ] Add comprehensive unit and integration tests
 - [ ] Implement CQRS pattern with MediatR
 - [ ] Add API versioning
