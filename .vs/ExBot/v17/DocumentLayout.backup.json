@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "src\\ExBot.Infrastructure.Cosmos\\CosmosDbContext.cs",
               "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\CosmosDbContext.cs",
               "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\CosmosDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T16:59:50.553Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\DocumentLogDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T16:49:52.187Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\ConversationMessageDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T16:49:52.153Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\AgentConversationDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T16:49:52.113Z"
             }
           ]
         }

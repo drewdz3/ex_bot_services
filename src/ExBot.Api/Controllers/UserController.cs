@@ -10,7 +10,7 @@ namespace ExBot.Api.Controllers;
 /// API controller for User management operations
 /// Requires Azure Entra ID authentication
 /// </summary>
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]

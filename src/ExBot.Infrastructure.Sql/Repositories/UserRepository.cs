@@ -35,6 +35,7 @@ namespace ExBot.Infrastructure.Sql.Repositories
             //  first convert to dto
             var dto = _UserToDbMapping.Map(model);
             await _DbContext.AddAsync(dto);
+            await _DbContext.SaveChangesAsync(cancellationToken);
             return model;
         }
 
@@ -43,6 +44,7 @@ namespace ExBot.Infrastructure.Sql.Repositories
             var user = await _DbContext.FindAsync<UserDto>(key);
             if (user == null) return;
             _DbContext.Remove(user);
+            await _DbContext.SaveChangesAsync(cancellationToken);
         }
 
         public async Task<List<User>> GetAllAsync(CancellationToken cancellationToken)
@@ -74,6 +76,7 @@ namespace ExBot.Infrastructure.Sql.Repositories
             //  map the changes
             dbUser = _UserToDbMapping.Map(model);
             _DbContext.Update(dbUser);
+            await _DbContext.SaveChangesAsync(cancellationToken);
             return model;
         }
 
