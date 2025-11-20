@@ -1,0 +1,67 @@
+﻿using Microsoft.Azure.Cosmos;
+using System.Threading.Tasks;
+
+namespace ExBot.Infrastructure.Data;
+
+/// <summary>
+/// Cosmos DB context for document-based data (e.g., AI agent conversations)
+/// </summary>
+public class CosmosDbContext
+{
+    private readonly CosmosClient _client;
+    private readonly Database _database;
+
+    public CosmosDbContext(string connectionString, string databaseName)
+    {
+        _client = new CosmosClient(connectionString);
+        _database = _client.GetDatabase(databaseName);
+    }
+
+    /// <summary>
+    /// Container for storing AI agent conversation history
+    /// </summary>
+    public Container AgentConversations =>
+        _database.GetContainer("agent_conversations");
+
+    /// <summary>
+    /// Container for storing unstructured data and logs
+    /// </summary>
+    public Container DocumentLogs =>
+        _database.GetContainer("document_logs");
+}
+
+/// <summary>
+/// Document model for AI agent conversations
+/// </summary>
+public class AgentConversation
+{
+    public string Id { get; set; } = string.Empty;
+    public Guid UserId { get; set; }
+    public string AgentName { get; set; } = string.Empty;
+    public List<ConversationMessage> Messages { get; set; } = new();
+    public DateTime StartedAt { get; set; }
+    public DateTime? EndedAt { get; set; }
+    public Dictionary<string, object> Metadata { get; set; } = new();
+}
+
+/// <summary>
+/// Message within a conversation
+/// </summary>
+public class ConversationMessage
+{
+    public string Role { get; set; } = string.Empty; // "user", "assistant", "system"
+    public string Content { get; set; } = string.Empty;
+    public DateTime Timestamp { get; set; }
+    public Dictionary<string, object> Metadata { get; set; } = new();
+}
+
+/// <summary>
+/// Document model for general logging and unstructured data
+/// </summary>
+public class DocumentLog
+{
+    public string Id { get; set; } = string.Empty;
+    public string Type { get; set; } = string.Empty;
+    public Dictionary<string, object> Data { get; set; } = new();
+    public DateTime CreatedAt { get; set; }
+}

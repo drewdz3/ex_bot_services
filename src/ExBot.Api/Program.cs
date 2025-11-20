@@ -1,14 +1,16 @@
-using ExBot.Infrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Identity.Web;
+using ExBot.Application;
+using ExBot.Domain;
+using ExBot.Infrastructure.Cosmos;
+using ExBot.Infrastructure.Sql;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Azure Entra ID authentication
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
 
-builder.Services.AddAuthorization();
+//builder.Services.AddAuthorization();
 
 // Add services to the container
 builder.Services.AddControllers();
@@ -17,11 +19,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add Clean Architecture layers with database support
+//  add the domain layer
+//  , useDatabase: builder.Configuration.GetValue<bool>("UseDatabase", false)
+builder.Services.AddDomain(builder.Configuration);
+//  add data layer cosmos and sql
+builder.Services.AddSqlData(builder.Configuration);
+builder.Services.AddCosmosData(builder.Configuration);
 builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration, useDatabase: builder.Configuration.GetValue<bool>("UseDatabase", false));
 
 var app = builder.Build();
+
+//  ensure the databases are created and migrated
+await app.Services.InitialiseSqlAsync();
+await app.Services.InitialiseCosmosAsync();
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
