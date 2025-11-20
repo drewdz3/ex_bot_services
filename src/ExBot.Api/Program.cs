@@ -2,15 +2,19 @@ using ExBot.Application;
 using ExBot.Domain;
 using ExBot.Infrastructure.Cosmos;
 using ExBot.Infrastructure.Sql;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Azure Entra ID authentication
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"));
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration, "AzureAd");
 
-//builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ApiAccess", policy => policy.RequireScope(["api_access"]));
+});
 
 // Add services to the container
 builder.Services.AddControllers();
@@ -41,7 +45,7 @@ if (app.Environment.IsDevelopment())
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "ExBot API v1");
         options.RoutePrefix = string.Empty; // Serve Swagger UI at the app's root
-        
+
         // Configure OAuth2 for Swagger UI
         options.OAuthClientId(builder.Configuration["AzureAd:ClientId"]);
         options.OAuthUsePkce();

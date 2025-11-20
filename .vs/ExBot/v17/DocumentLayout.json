@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Project\\ExBot\\services\\dev\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B85EF6B-ED50-4BF5-8085-C274AF43F706}|src\\ExBot.Infrastructure.Sql\\ExBot.Infrastructure.Sql.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.infrastructure.sql\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B85EF6B-ED50-4BF5-8085-C274AF43F706}|src\\ExBot.Infrastructure.Sql\\ExBot.Infrastructure.Sql.csproj|solutionrelative:src\\exbot.infrastructure.sql\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|solutionrelative:src\\exbot.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|solutionrelative:src\\exbot.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.infrastructure.cosmos\\dto\\agentconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|solutionrelative:src\\exbot.infrastructure.cosmos\\dto\\agentconversationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.infrastructure.cosmos\\dto\\conversationmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|solutionrelative:src\\exbot.infrastructure.cosmos\\dto\\conversationmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.infrastructure.cosmos\\dto\\documentlogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DC73C63-84F9-44B3-8E22-9134B62DAF91}|src\\ExBot.Infrastructure.Cosmos\\ExBot.Infrastructure.Cosmos.csproj|solutionrelative:src\\exbot.infrastructure.cosmos\\dto\\documentlogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|c:\\project\\exbot\\services\\dev\\src\\exbot.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CE48DD55-CA9A-4E51-8A4F-DDAFC52B4E2E}|src\\ExBot.Api\\ExBot.Api.csproj|solutionrelative:src\\exbot.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\ExBot.Api\\appsettings.json",
+              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Api\\appsettings.json",
+              "RelativeToolTip": "src\\ExBot.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-20T20:14:38.043Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -44,59 +49,23 @@
               "RelativeDocumentMoniker": "src\\ExBot.Api\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Api\\Controllers\\UserController.cs",
               "RelativeToolTip": "src\\ExBot.Api\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAkwFgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T17:58:15.293Z",
+              "WhenOpened": "2025-11-20T19:56:45.249Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Sql\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "src\\ExBot.Infrastructure.Sql\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Sql\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "src\\ExBot.Infrastructure.Sql\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA6wBcAAAAvAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Api\\Program.cs",
+              "RelativeDocumentMoniker": "src\\ExBot.Api\\Program.cs",
+              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Api\\Program.cs",
+              "RelativeToolTip": "src\\ExBot.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T17:58:15.313Z",
+              "WhenOpened": "2025-11-20T18:15:28.828Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DocumentLogDto.cs",
-              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\DocumentLogDto.cs",
-              "RelativeDocumentMoniker": "src\\ExBot.Infrastructure.Cosmos\\Dto\\DocumentLogDto.cs",
-              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\DocumentLogDto.cs",
-              "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\DocumentLogDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.187Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ConversationMessageDto.cs",
-              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\ConversationMessageDto.cs",
-              "RelativeDocumentMoniker": "src\\ExBot.Infrastructure.Cosmos\\Dto\\ConversationMessageDto.cs",
-              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\ConversationMessageDto.cs",
-              "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\ConversationMessageDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AgentConversationDto.cs",
-              "DocumentMoniker": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\AgentConversationDto.cs",
-              "RelativeDocumentMoniker": "src\\ExBot.Infrastructure.Cosmos\\Dto\\AgentConversationDto.cs",
-              "ToolTip": "C:\\Project\\ExBot\\services\\dev\\src\\ExBot.Infrastructure.Cosmos\\Dto\\AgentConversationDto.cs",
-              "RelativeToolTip": "src\\ExBot.Infrastructure.Cosmos\\Dto\\AgentConversationDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T16:49:52.113Z"
             }
           ]
         }
