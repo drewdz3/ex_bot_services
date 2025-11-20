@@ -1,0 +1,18 @@
+{
+  "aud": "9d923d40-ab42-4536-bb15-ca98bf510fd9",
+  "iss": "https://exbotfitness.b2clogin.com/18d15b39-8092-4285-aba8-78ded1e70e10/v2.0/",
+  "exp": 1763672982,
+  "nbf": 1763669382,
+  "oid": "aea49cee-ae46-45ea-8a64-06e0d301036a",
+  "sub": "aea49cee-ae46-45ea-8a64-06e0d301036a",
+  "given_name": "Andrew",
+  "emails": [
+    "andrewrdalton@outlook.com"
+  ],
+  "tfp": "B2C_1_LOCAL_SUSI",
+  "nonce": "ZJIZOZ5bmPWrqweIBlRZyw",
+  "scp": "api_access",
+  "azp": "7d7e58e6-879d-43e2-9e5a-9589ed75af2e",
+  "ver": "1.0",
+  "iat": 1763669382
+}
