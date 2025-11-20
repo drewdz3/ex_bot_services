@@ -1,21 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11"/>
+		<PackageReference Include="Microsoft.Identity.Web" Version="4.0.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ExBot.Application\ExBot.Application.csproj" />
-    <ProjectReference Include="..\ExBot.Infrastructure\ExBot.Infrastructure.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\ExBot.Application\ExBot.Application.csproj" />
+		<ProjectReference Include="..\ExBot.Common\ExBot.Common.csproj" />
+		<ProjectReference Include="..\ExBot.Domain\ExBot.Domain.csproj" />
+		<ProjectReference Include="..\ExBot.Infrastructure.Cosmos\ExBot.Infrastructure.Cosmos.csproj" />
+		<ProjectReference Include="..\ExBot.Infrastructure.Sql\ExBot.Infrastructure.Sql.csproj" />
+		<ProjectReference Include="..\ObjectMapper\ObjectMapper.csproj" />
+	</ItemGroup>
 
 </Project>

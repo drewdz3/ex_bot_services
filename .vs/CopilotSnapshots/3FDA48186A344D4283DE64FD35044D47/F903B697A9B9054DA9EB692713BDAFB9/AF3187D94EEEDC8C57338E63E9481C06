@@ -1,0 +1,66 @@
+﻿using ObjectMapper;
+using Xunit;
+
+namespace ObjectMapper.Test
+{
+    public class MapperTests
+    {
+        public class Source
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+
+        public class Target
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+
+        [Fact]
+        public void Map_ShouldCopyMatchingProperties()
+        {
+            var mapper = new Mapper();
+            mapper.CreateMapping<Source, Target>();
+
+            var source = new Source { Name = "Alice", Age = 30 };
+            var target = mapper.Map<Source, Target>(source);
+
+            Assert.Equal(source.Name, target.Name);
+            Assert.Equal(source.Age, target.Age);
+        }
+
+        [Fact]
+        public void Map_ShouldThrowIfMappingNotFound()
+        {
+            var mapper = new Mapper();
+            var source = new Source { Name = "Bob", Age = 25 };
+
+            var ex = Assert.Throws<Exception>(() => mapper.Map<Source, Target>(source));
+            Assert.Contains("Could not find a conversion", ex.Message);
+        }
+
+        [Fact]
+        public void Map_ShouldApplyCustomConversion()
+        {
+            var mapper = new Mapper();
+            var mapping = mapper.CreateMapping<Source, Target>();
+            mapping.WithConversion(nameof(Source.Name), nameof(Target.Name), value => ((string)value).ToUpper());
+
+            var source = new Source { Name = "Charlie", Age = 40 };
+            var target = mapper.Map<Source, Target>(source);
+
+            Assert.Equal("CHARLIE", target.Name);
+            Assert.Equal(source.Age, target.Age);
+        }
+    }
+
+    public class UnitTest1
+    {
+        [Fact]
+        public void Test1()
+        {
+
+        }
+    }
+}

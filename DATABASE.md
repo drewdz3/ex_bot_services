@@ -61,6 +61,9 @@ dotnet ef migrations add InitialCreate --startup-project ../ExBot.Api
 dotnet ef database update --startup-project ../ExBot.Api
 ```
 
+Note that we're using hybrid authentication for now. Use
+exbot, B1616A22-FB1A-46F2-8F89-1F22B75AC7D3
+
 ### 4. Verify Tables
 
 The following tables will be created:
