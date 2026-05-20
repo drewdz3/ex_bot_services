@@ -57,21 +57,6 @@ jobs:
             printf "repo_name: %s\n" "$REPO_FULL_NAME" >> mkdocs.yml
           fi    
           
-          mkdir -p docs
-          
-          printf '%s\n' \
-            "{" \
-            "  \"name\": \"$SITE_NAME\"," \
-            "  \"slug\": \"$REPO_NAME\"," \
-            "  \"repo\": \"$REPO_FULL_NAME\"," \
-            "  \"repo_url\": \"$REPO_URL\"," \
-            "  \"url\": \"$PAGES_URL\"," \
-            "  \"description\": \"\"," \
-            "  \"type\": \"project\"" \
-            "}" > docs/docs-site.json
-            
-          cat docs/docs-site.json
-  
       - name: Build HTML site
         run: mkdocs build
 
