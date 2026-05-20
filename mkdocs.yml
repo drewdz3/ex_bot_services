@@ -33,6 +33,7 @@ plugins:
   - awesome-pages
 
 extra:
+  scope: /
   portal:
     name: Documentation Portal
     url: https://drewdz3.github.io/
