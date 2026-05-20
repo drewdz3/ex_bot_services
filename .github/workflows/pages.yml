@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -33,13 +34,44 @@ jobs:
       - name: Copy root README into docs
         run: cp README.md docs/index.md  
         
-      - name: Set site name from repository name
+      - name: Configure MkDocs site metadata
         run: |
-          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          REPO_FULL_NAME="${{ github.repository }}"
+          REPO_NAME="${{ github.event.repository.name }}"
+          REPO_URL="${{ github.server_url }}/${{ github.repository }}"
+          PAGES_URL="https://${{ github.repository_owner }}.github.io/${REPO_NAME}/"
+
           SITE_NAME=$(echo "$REPO_NAME" | sed 's/[-_]/ /g' | sed 's/\b\(.\)/\u\1/g')
-          echo "Using site name: $SITE_NAME"
-          sed -i "s/^site_name:.*/site_name: $SITE_NAME/" mkdocs.yml
-    
+          
+          sed -i "s|^site_name:.*|site_name: $SITE_NAME|" mkdocs.yml
+          
+          if grep -q "^repo_url:" mkdocs.yml; then
+            sed -i "s|^repo_url:.*|repo_url: $REPO_URL|" mkdocs.yml
+          else
+            printf "\nrepo_url: %s\n" "$REPO_URL" >> mkdocs.yml
+          fi
+          
+          if grep -q "^repo_name:" mkdocs.yml; then
+            sed -i "s|^repo_name:.*|repo_name: $REPO_FULL_NAME|" mkdocs.yml
+          else
+            printf "repo_name: %s\n" "$REPO_FULL_NAME" >> mkdocs.yml
+          fi    
+          
+          mkdir -p docs
+          
+          printf '%s\n' \
+            "{" \
+            "  \"name\": \"$SITE_NAME\"," \
+            "  \"slug\": \"$REPO_NAME\"," \
+            "  \"repo\": \"$REPO_FULL_NAME\"," \
+            "  \"repo_url\": \"$REPO_URL\"," \
+            "  \"url\": \"$PAGES_URL\"," \
+            "  \"description\": \"\"," \
+            "  \"type\": \"project\"" \
+            "}" > docs/docs-site.json
+            
+          cat docs/docs-site.json
+  
       - name: Build HTML site
         run: mkdocs build
 
